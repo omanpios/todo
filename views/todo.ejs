@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs') %>
+
+    <body class="container col-6 align-items-center py-4 bg-body-tertiary">
+        <h1>Here is your tasks list!</h1>
+        <!-- Task form -->
+        <div>
+            <form action="/submit" method="POST" class="form-control">
+                <div class="mb-3">
+                    <label for="taskTitle" class="form-label">Whats is your goal?</label>
+                    <input type="text" class="form-control" id="taskTitle" name="taskTitle" required>
+                </div>
+                <div class="mb-3">
+                    <label for="taskDescription" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="taskDescription" name="taskDescription" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <!-- Tasks list -->
+        <div class="list-group">
+            <% if (locals.taskList) {%>
+                <% for (let i=0; i < taskList.length; i++) {%>
+                    <label class="list-group-item d-flex gap-2">
+                        <div class="list-item">
+                            <input class="form-check-input flex-shrink-0 checkbox checked" type="checkbox">
+
+                            <label for="checkbox">
+                                <%= taskList[i].taskTitle%>
+                            </label>
+
+                            <small class="d-block text-body-secondary">
+                                <%=taskList[i].taskDescription%>
+                            </small>
+                            <small>
+                                <small class="d-block text-body-secondary">
+                                    <%=taskList[i].taskDate%>
+                                </small>
+                            </small>
+                        </div>
+                    </label>
+                    <%}} else {%>
+                        <h2>Everything is done!</h2>
+                        <%} %>
+        </div>
+        <%- include('partials/footer.ejs') %>

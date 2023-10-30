@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+    <body class="container-sm">
+        <div class="">
+            <form action="/check" method="POST" class="form-control">
+                <h1 class="h3 mb-3 fw-normal">Please sign in </h1>
+                <div class="form-floating">
+                    <label for="user" class="visually-hidden">User</label>
+                    <input class="form-control" type="user" id="user" name="user" placeholder="User" required>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" type="password" id="password" name="password" required
+                        placeholder="Password">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Remember me
+                    </label>
+                </div>
+                <button class="btn btn-primary" type="submit">Sign in</button>
+            </form>
+        </div>
+
+        <%- include("partials/footer.ejs") %>

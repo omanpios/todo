@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs')  %>
+<body>
+    <h1>Here is your tasks list!</h1>
+
+    <div class="container">
+        <form action="/submit" method="POST" class="form-control">
+            <div class="mb-3">
+                <label for="taskTitle" class="form-label">Whats is your goal?</label>
+                <input type="text" class="form-control" id="taskTitle" name="taskTitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="taskDescription" class="form-label">Description</label>
+                <input type="text" class="form-control" id="taskDescription" name="taskDescription" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="list-group container">
+        <% if (locals.taskList) {%>
+            <% for (let i=0; i < taskList.length; i++) {%>
+
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" value="">
+                    <span>
+                        <%= taskList[i].taskTitle%>
+                            <small class="d-block text-body-secondary">
+                                <%=taskList[i].taskDescription%>
+                            </small>
+                    </span>
+                </label>
+                <%}} else {%>
+                    <h2>Everything is done!</h2>
+                    <%} %>
+    </div>
+<%- include('partials/footer.ejs')  %>
