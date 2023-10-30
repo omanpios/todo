@@ -3,8 +3,8 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const secretUser = "omar";
-const secretPass = "omar";
+const secretUser = "user";
+const secretPass = "pass";
 app.use(express.static("public"));
 
 var password = "";
